@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" type="image/x-icon" href="https://www.chartjs.org/samples/latest/favicon.ico" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  
+    <title>ChartJS with Standard/Target</title>
+  </head>
+  <body>
+    <div class="row">
+      <div class="col-6 offset-3">
+        <div class="text-center mt-5">
+          <img src="target.png" alt="Logo Target" width="70">
+        </div>
+        <h1 class="text-center mt-2"> <span style="color: #FF6384">Chart.js</span> <span style="color: #54a0ff">Standard/Target</span></h1>
+        <hr>
+        <canvas id="chartjs"></canvas>
+        <hr>
+        <div class="text-center">
+          <code class="text-muted" style="font-size: 12px;"><span style="color: #54a0ff">@byruddy</span> or <span style="color: #FF6384">devruddy@gmail.com</span></code>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, Bootstrap JS, ChartJS then Chartjs plugin -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script src="https://rawgit.com/chartjs/chartjs-plugin-annotation/master/chartjs-plugin-annotation.js"></script>
+    <script>
+      $(document).ready(function() {
+        // Random Value
+        var v1 = Math.floor(Math.random()*(95-10+1)+10);
+        var v2 = Math.floor(Math.random()*(95-10+1)+10);
+        var v3 = Math.floor(Math.random()*(95-10+1)+10);
+        var v4 = Math.floor(Math.random()*(95-10+1)+10);
+        var v5 = Math.floor(Math.random()*(95-10+1)+10);
+        var v6 = Math.floor(Math.random()*(95-10+1)+10);
+        var v7 = Math.floor(Math.random()*(95-10+1)+10);
+        var v8 = Math.floor(Math.random()*(95-10+1)+10);
+        var v9 = Math.floor(Math.random()*(95-10+1)+10);
+        var v10 = Math.floor(Math.random()*(95-10+1)+10);
+
+        window.chartColors = {
+          red: 'rgb(255, 99, 132)',
+          orange: 'rgb(255, 159, 64)',
+          yellow: 'rgb(255, 205, 86)',
+          green: 'rgb(75, 192, 192)',
+          blue: 'rgb(54, 162, 235)',
+          purple: 'rgb(153, 102, 255)',
+          grey: 'rgb(231,233,237)'
+        };
+
+        var ctx = document.getElementById("chartjs").getContext("2d");
+
+        var myChart = new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+            datasets: [{
+              label: 'Income',
+              borderColor: window.chartColors.blue,
+              borderWidth: 2,
+              fill: false,
+              data: [0, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10,80,99]
+            }]
+          },
+          options: {
+            responsive: true,
+            title: {
+              display: true,
+              text: 'Freelance Web Developer Income [$]'
+            }, 
+            legend: {
+              display: false
+            },
+            tooltips: {
+              mode: 'index',
+              intersect: true
+            },
+            annotation: {
+              annotations: [{
+                type: 'line',
+                mode: 'horizontal',
+                scaleID: 'y-axis-0',
+                value: 50,
+                borderColor: '#FF6384',
+                borderWidth: 1,
+                label: {
+                  enabled: false,
+                  content: 'Test label'
+                }
+              }]
+            }
+          }
+        });
+
+      });
+    </script>
+  </body>
+</html>
